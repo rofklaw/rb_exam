@@ -1,0 +1,36 @@
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e| %>
+		<p><%= e %></p>
+	<% end %>
+<% end %>
+
+<h2> BECOME A LENDER </h2>
+
+
+  <form action="/lender" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    First Name: <input type="text" name="lender[first_name]"></input>
+    Last Name: <input type="text" name="lender[last_name]"></input>
+    Email: <input type="text" name="lender[email]"></input>
+    Password: <input type="password" name="lender[password]"></input>
+    Confirm Password: <input type="password" name="lender[password_confirmation]"></input>
+    Money: <input type="number" name="lender[money]"></input>
+    <input type="submit" label="Start Lending"></input>
+  </form>
+
+<h2> BEGGING </h2>
+<form action="/borrower" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  First Name: <input type="text" name="borrower[first_name]"></input>
+  Last Name: <input type="text" name="borrower[last_name]"></input>
+  Email: <input type="text" name="borrower[email]"></input>
+  Password: <input type="password" name="borrower[password]"></input>
+  Confirm Password: <input type="password" name="borrower[password_confirmation]"></input>
+  Need MOney For: <input type="text" name="borrower[need]"></input>
+  Description: <input type="text" name="borrower[description]"></input>
+  Goal: <input type="number" name="borrower[goal]"></input>
+  <input type="submit" label="e-beg"></input>
+</form>
+
+<a href="../session/new">login</a>

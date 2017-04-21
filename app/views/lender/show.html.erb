@@ -1,0 +1,14 @@
+<h2> <%= @lender.first_name %> </h2>
+<h4> <%= @lender.money %> </h4>
+
+<% @borrowers.each do |b| %>
+  <p><%= b.first_name %> </p>
+  <form action="/lender/<%= b.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="number" name="money">
+    <input type="submit" value="lend">
+  </form>
+  <% end %>
+
+<a href="/session/" data-confirm="Are you sure you want to log out?" data-method="delete">Log Out</a>
